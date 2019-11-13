@@ -1,8 +1,8 @@
 FROM oraclelinux:7-slim
 RUN yum install -q -y oracle-gluster-release-el7 && \
     yum install -q -y git glusterfs glusterfs-fuse attr && \
-    curl --silent -L https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz | tar -C /usr/local -zxf -
-RUN /usr/local/go/bin/go get github.com/trajano/docker-volume-plugins/glusterfs-volume-plugin && \
+    curl --silent -L https://dl.google.com/go/go1.13.4.linux-armv6l.tar.gz | tar -C /usr/local -zxf -
+RUN /usr/local/go/bin/go get github.com/recklessop/docker-volume-plugins/glusterfs-volume-plugin && \
     mv $HOME/go/bin/glusterfs-volume-plugin / && \
     rm -rf $HOME/go /usr/local/go && \
     yum remove -q -y git && \
